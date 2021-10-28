@@ -11,3 +11,29 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+.table{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.box {
+    width: 9rem;
+    height: 9rem;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10%;
+    border:2px solid red;
+    color: blanchedalmond;
+    font-size: 100px;
+}
+
+.figure{
+    width: 8rem;
+    height: 8rem;
+    background: hotpink;
+    border-radius: 100%;
+}
