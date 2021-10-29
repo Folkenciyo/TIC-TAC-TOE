@@ -10,7 +10,7 @@ const Box = props => {
 			onClick={() => {
 				if (!value) {
 					setValue(props.value);
-					props.changeTurn();
+					props.changeTurn(props.position);
 				}
 			}}>
 			{value}
@@ -20,7 +20,8 @@ const Box = props => {
 
 Box.propTypes = {
 	value: PropTypes.string,
-	changeTurn: PropTypes.func
+	changeTurn: PropTypes.func,
+	position: PropTypes.number
 };
 
 export default Box;
