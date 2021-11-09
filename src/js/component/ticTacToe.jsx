@@ -4,14 +4,22 @@ import PropTypes from "prop-types";
 const Box = props => {
 	const [value, setValue] = useState("");
 
+	//cambio de turno
+	const switchTurn = turn => {
+		if (value == "" && turn == true) {
+			setValue("👿");
+		} else if (value === "" && turn == false) {
+			setValue("👼");
+		}
+		props.changeValue();
+	};
+
 	return (
 		<div
 			className="box"
 			onClick={() => {
-				if (!value) {
-					setValue(props.value);
-					props.changeTurn(props.position);
-				}
+				switchTurn(props.turn);
+				props.saveBoxesValues(props.turn, props.boxesPosition);
 			}}>
 			{value}
 		</div>
@@ -19,9 +27,10 @@ const Box = props => {
 };
 
 Box.propTypes = {
-	value: PropTypes.string,
-	changeTurn: PropTypes.func,
-	position: PropTypes.number
+	turn: PropTypes.bool,
+	changeValue: PropTypes.func,
+	boxesPosition: PropTypes.number,
+	saveBoxesValues: PropTypes.func
 };
 
 export default Box;
