@@ -6,7 +6,7 @@ import Row from "react-bootstrap/Row";
 const Home = () => {
 	const [turn, setTurn] = useState(true);
 	const [boardValue, setBoardValue] = useState(new Array(9).fill(null));
-	const [state, setState] = useState("Demons Start");
+	const [state, setState] = useState("SOTO EMPIEZA");
 
 	//GUARDA LA POSICION EN CADA JUGADA
 	const saveBoxesValue = (value, boxesPosition) => {
@@ -19,11 +19,11 @@ const Home = () => {
 		let winner = solutionsWinner(boxes);
 
 		if (winner === true) {
-			setState("Demon Wins");
+			setState("Ha ganado Soto... Soto: ¡Pues no haber follao!");
 		} else if (winner === false) {
-			setState("Angel Wins");
+			setState("Ha ganado Willy... Willy: ...Sozpechozo...");
 		} else if (winner === null) {
-			setState("Is your Turn => " + (turn ? "👿" : "👼"));
+			setState("Is your Turn => " + (turn ? "WILLY" : "SOTO"));
 		}
 	};
 
@@ -73,27 +73,29 @@ const Home = () => {
 	};
 
 	return (
-		<Container>
-			<Row>{state}</Row>
-			<Row>
-				{" "}
-				{board[0]}
-				{board[1]}
-				{board[2]}{" "}
-			</Row>
-			<Row>
-				{" "}
-				{board[3]}
-				{board[4]}
-				{board[5]}{" "}
-			</Row>
-			<Row>
-				{" "}
-				{board[6]}
-				{board[7]}
-				{board[8]}{" "}
-			</Row>
-		</Container>
+		<div className="body">
+			<div>{state}</div>
+			<div className="table">
+				<div>
+					{" "}
+					{board[0]}
+					{board[1]}
+					{board[2]}{" "}
+				</div>
+				<div>
+					{" "}
+					{board[3]}
+					{board[4]}
+					{board[5]}{" "}
+				</div>
+				<div>
+					{" "}
+					{board[6]}
+					{board[7]}
+					{board[8]}{" "}
+				</div>
+			</div>
+		</div>
 	);
 };
 

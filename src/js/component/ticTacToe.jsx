@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import sotofinal from "../../img/sotofinal.png";
+import willy from "../../img/willy.png";
 
 const Box = props => {
 	const [value, setValue] = useState("");
@@ -7,9 +9,9 @@ const Box = props => {
 	//cambio de turno
 	const switchTurn = turn => {
 		if (value == "" && turn == true) {
-			setValue("👿");
+			setValue(<img src={sotofinal} />);
 		} else if (value === "" && turn == false) {
-			setValue("👼");
+			setValue(<img src={willy} />);
 		}
 		props.changeValue();
 	};
